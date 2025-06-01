@@ -10,8 +10,10 @@ import java.nio.charset.StandardCharsets;
 public class FileLoader {
     public String[] loadStrings(String path) {
         try {
+            System.out.println("Trying to load file at path: " + path);  // <-- Debug print here
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
             if (inputStream == null) {
+                System.out.println("Resource not found for path: " + path);  // <-- Debug print here
                 throw new RuntimeException("File not found: " + path);
             }
             String fileText = IOUtils.toString(inputStream, StandardCharsets.UTF_8);

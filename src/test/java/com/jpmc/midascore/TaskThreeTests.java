@@ -26,7 +26,7 @@ public class TaskThreeTests {
     @Test
     void task_three_verifier() throws InterruptedException {
         userPopulator.populate();
-        String[] transactionLines = fileLoader.loadStrings("/test_data/mnbvcxz.vbnm");
+        String[] transactionLines = fileLoader.loadStrings("test_data/mnbvcxz.vbnm");
         for (String transactionLine : transactionLines) {
             kafkaProducer.send(transactionLine);
         }
