@@ -1,4 +1,3 @@
-
 package com.jpmc.midascore.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +19,7 @@ public class TransactionListener {
         this.transactionService = transactionService;
     }
 
-    @KafkaListener(topics = "${general.kafka-topic}", groupId = "midas-core")
+    @KafkaListener(topics = "${midas.kafka.topic}", groupId = "midas-core")
     public void onMessage(String message) {
         try {
             Transaction tx = mapper.readValue(message, Transaction.class);
